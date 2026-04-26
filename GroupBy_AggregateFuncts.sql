@@ -50,4 +50,16 @@ select Branch,sum(Amount) from Transactions
 	where Branch='Mumbai' or Branch='Bangalore' 
 		group by Branch 
 			having sum(Amount)<20000;
+            
+select * from Transactions;
+
+#Get the month which has amount less than 500 when Mumbai and Bangalore combine
+Select Month,Sum(Amount) from Transactions
+	where Branch='Mumbai' or branch='Bangalore' 
+		group by Month 
+			having Sum(Amount) <500;
+
+#Get the branch/month name which has amount of 50000 in Feb
+select Month,Sum(Amount) from Transactions where Branch='Mumbai' group by Month having Sum(Amount)>45000;
+Select branch,Sum(Amount) from Transactions where month='Feb' group by Branch having Sum(Amount)>50000;
 
