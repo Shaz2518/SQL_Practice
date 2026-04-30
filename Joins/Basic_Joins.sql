@@ -40,8 +40,17 @@ insert into established values('Apple', 1991);
 select * from established;
 
 #Get the employee count of the commany established in 1991
-select c.name,SUM(c.employee)  from companydetails as c join established e on e.name=c.name where e.estyear='1991' Group by e.name;
+select c.name,SUM(c.employee)  from companydetails as c join established as e on e.name=c.name where e.estyear='1991' Group by e.name;
 select c.name,SUM(c.employee)  from companydetails as c join established e on e.name=c.name where e.estyear='1884' Group by e.name;
 
 select c.name, Sum(c.employee) from companydetails as c join established e on e.name=c.name where c.name='Amazon' Group by c.name;
 
+#Minimum Employee in a branch for all companies established after 1995
+select * from companydetails;
+select * from established;
+
+select  c.name, min(c.Employee) 
+	from companydetails as c join established as e on e.name=c.name 
+		where e.estyear <1995
+        Group by e.name ;
+		
